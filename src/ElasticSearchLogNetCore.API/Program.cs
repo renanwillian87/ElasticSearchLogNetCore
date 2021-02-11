@@ -18,7 +18,7 @@ namespace ElasticSearchLogNetCore.API
                 .UseSerilog(configureLogger: (hostContext, loggerConfiguration) => {
                     loggerConfiguration
                         .Enrich.FromLogContext()
-                        //.Enrich.WithMachineName()
+                        .Enrich.WithMachineName()
                         .WriteTo.Console()
                         .WriteTo.Elasticsearch(
                             new ElasticsearchSinkOptions(new Uri(hostContext.Configuration["ElasticConfiguration:Uri"]))
